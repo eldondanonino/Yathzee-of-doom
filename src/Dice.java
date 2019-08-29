@@ -33,6 +33,7 @@ public class Dice
               do
             {
                 n = sc.nextInt();
+                if(n==-1) break;
                 if(ArrayOfDice[n] == -1)
                 {
                     System.out.println("This dice will already be rerolled!");
