@@ -28,22 +28,18 @@ public class Dice
             System.out.println("Your sum of dice has a value of  " + sum + " points!\n");
     }
 
-
-    public static int Reroll (int[] ArrayOfDice, int turnCounter)
+    public static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter)
     {
-
-        int n, input=0;
+        int n, input = 0;
         Scanner sc = new Scanner(System.in);
-        if (turnCounter == 0)
-        {
+        //System.out.println("Failsafe has these values : " + Failsafe[0] + Failsafe[1] + Failsafe[2] + Failsafe[3] + Failsafe[4] );
+
             do {
                 //printScreen(ArrayOfDice, false);
                 System.out.println("\nWould you like to reroll some dice? (1= YES / 2=NO)");
                 input = sc.nextInt();
             } while (input < 1 || input > 2);
-        }
-        if (turnCounter > 0)
-            input = 1;
+
         if (input == 1) {
             System.out.println("\nReroll time! (reroll " + (turnCounter + 1) + " out of 2)");
             System.out.println("Which die do you want to reroll? (write -1 to stop the reroll)");
@@ -52,22 +48,31 @@ public class Dice
                 do //we check that the dice we want to reroll exists
                 {
                     n = sc.nextInt();
-                    if (n < -1 || n > 5)
+                    if (n < -1 || n > 4)
                         System.out.println("This dice does not exist!");
-                } while (n < -1 || n > 5);
+                } while (n < -1 || n > 4);
+
                 if (n == -1) break;  // we stop the reroll if the user wants to
-                if (ArrayOfDice[n] == -1) // we check that the die is not already rerolled
+
+                if (ArrayOfDice[n] == -1) // if the user changes his mind we reset the dice to its previous value
                 {
-                    System.out.println("This dice will already be rerolled!");
+                    ArrayOfDice[n] = Failsafe[n];
+                    System.out.println(ArrayOfDice[n]);
+                    //printScreen(ArrayOfDice,false);
                 }
+
+                else
+
                 if (n <= 5 && n >= 0 && ArrayOfDice[n] != -1) // actual reroll phase (we give it an uninitialized value of -1 like in the beginning)
                 {
                     ArrayOfDice[n] = -1;
                     System.out.println("Next throw, die n°" + n + " will be rerolled!");
                 }
+
                 printScreen(ArrayOfDice, false);
                 System.out.println("Which die do you want to reroll? (write -1 to stop the reroll)");
             } while (n != -1);
+            System.out.println("\nREROLL DONE!");
         }
         if(input==2) // if the user does not wish to reroll anymore, we skip to the last phase of the turn
             turnCounter=2;
@@ -78,14 +83,25 @@ public class Dice
     {
         int[]ArrayOfDice = new int[]{-1,-1,-1,-1,-1}; // our "Hand" of dice, still waiting to be initialized
         int turnCounter; //the "phase" of our turn (ranging from 0 to 2)
-
+        int[]Failsafe = new int[]{-1,-1,-1,-1,-1};
+        int j;
         printScreen(ArrayOfDice,true);
 
     for (turnCounter = 0; turnCounter<3; turnCounter++)
     {
         if(turnCounter != 2) // We can reroll dice only twice (aka on turn 0 and 1)
         {
-            turnCounter = Reroll(ArrayOfDice, turnCounter);
+            j=0;
+           // we set up a backup array if the user changes his mind on a reroll
+            do
+            {
+                //System.out.println("AAAAAAAAA");
+                Failsafe[j] = ArrayOfDice[j];
+                //System.out.println(Failsafe[j]);
+                j++;
+            }while(j!=5);
+            //printScreen(Failsafe,true);
+            turnCounter = Reroll(ArrayOfDice, Failsafe, turnCounter);
             printScreen(ArrayOfDice, true);
         }
     }
