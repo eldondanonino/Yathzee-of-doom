@@ -93,14 +93,11 @@ public class Dice
         {
             j=0;
            // we set up a backup array if the user changes his mind on a reroll
-            do
-            {
+            for(j = 0;j<5; j++ ) {
                 //System.out.println("AAAAAAAAA");
                 Failsafe[j] = ArrayOfDice[j];
                 //System.out.println(Failsafe[j]);
-                j++;
-            }while(j!=5);
-            //printScreen(Failsafe,true);
+            }
             turnCounter = Reroll(ArrayOfDice, Failsafe, turnCounter);
             printScreen(ArrayOfDice, true);
         }
