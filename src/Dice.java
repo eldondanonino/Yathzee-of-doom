@@ -3,7 +3,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Dice
 {
-    public static void Throw ()
+    public static int[] Throw ()
     {
         Scanner sc = new Scanner(System.in);
     int[]ArrayOfDice = new int[]{-1,-1,-1,-1,-1};
@@ -32,22 +32,28 @@ public class Dice
                 System.out.println("Which die do you want to reroll? (write -1 to stop the reroll)");
               do
             {
-                n = sc.nextInt();
+                do
+                {
+                    n = sc.nextInt();
+                    if(n<-1 || n>5)
+                    System.out.println("This dice does not exist!");
+                }  while(n<-1 || n>5);
                 if(n==-1) break;
                 if(ArrayOfDice[n] == -1)
                 {
                     System.out.println("This dice will already be rerolled!");
-                }else
-                if (n <= 5 && n >= 0)
+                }
+                if (n <= 5 && n >= 0 && ArrayOfDice[n] != -1)
                 {
                     ArrayOfDice[n] = -1;
                     System.out.println("Next throw, die n°" + n + " will be rerolled!");
                 }
             }while(n != -1);
             }
+            if(input==2)
+                turnCounter=2;
         }
     }
+    return ArrayOfDice;
     }
-
-
 }
