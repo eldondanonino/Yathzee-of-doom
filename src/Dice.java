@@ -25,7 +25,7 @@ public class Dice
                 System.out.println(" ");
         }
         if (toggle)
-            System.out.println("Your sum of dice has a value of  " + sum + " points!\n"); // if true, we will output the sum of our hand (doesnt work if we have some -1 values) 
+            System.out.println("Your sum of dice has a value of  " + sum + " points!\n"); // if true, we will output the sum of our hand (doesnt work if we have some -1 values)
     }
 
     public static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter) //method that rerolls the value of selected dice
