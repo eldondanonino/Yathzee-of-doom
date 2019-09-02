@@ -18,14 +18,15 @@ public class Dice
             }
             sum += ArrayOfDice[n]; // Value of the sum of our hand
             if(ArrayOfDice[n]!=-1)
-                System.out.println("Your dice n°" + n + " has a value of " + ArrayOfDice[n]);
+                System.out.println("Your dice n°" + (n+1) + " has a value of " + ArrayOfDice[n]);
             else
-                System.out.println("Your dice n°" + n + " will be rerolled!");
+                System.out.println("Your dice n°" + (n+2) + " will be rerolled!");
             if (n==4)
                 System.out.println(" ");
         }
         if (toggle)
             System.out.println("Your sum of dice has a value of  " + sum + " points!\n"); // if true, we will output the sum of our hand (doesnt work if we have some -1 values)
+                                                                                                                                        //this will be useful for when we will implement the lower part of the table
     }
 
     public static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter) //method that rerolls the value of selected dice
@@ -42,12 +43,14 @@ public class Dice
 
         if (input == 1) {
             System.out.println("\nReroll time! (reroll " + (turnCounter + 1) + " out of 2)");
-            System.out.println("Which die do you want to reroll? (write -1 to stop the reroll)");
-            do // reroll dice untill the user inputs a stop (-1)
+            System.out.println("Which die do you want to reroll? (write 0 to stop the reroll)");
+            System.out.println("Pro tip! You can write all the dice that you want to reroll at once, just put a space in between each one!");
+            do // reroll dice untill the user inputs a stop (0)
             {
                 do //we check that the dice we want to reroll exists
                 {
                     n = sc.nextInt();
+                    n--;
                     if (n < -1 || n > 4)
                         System.out.println("This dice does not exist!");
                 } while (n < -1 || n > 4);
@@ -66,11 +69,11 @@ public class Dice
                 if (n <= 5 && n >= 0 && ArrayOfDice[n] != -1) // actual reroll phase (we give it an uninitialized value of -1 like in the beginning)
                 {
                     ArrayOfDice[n] = -1;
-                    System.out.println("Next throw, die n°" + n + " will be rerolled!");
+                    System.out.println("Next throw, die n°" + (n+1) + " will be rerolled!");
                 }
 
                 printScreen(ArrayOfDice, false);
-                System.out.println("Which die do you want to reroll? (write -1 to stop the reroll)");
+                System.out.println("Which die do you want to reroll? (write 0 to stop the reroll)");
             } while (n != -1);
             System.out.println("\nREROLL DONE!");
         }

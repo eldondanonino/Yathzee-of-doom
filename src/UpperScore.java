@@ -8,7 +8,8 @@ public class UpperScore<tableScore> {
     public static int[] Scoring(int[] ArrayOfDices) //a method that saves the player's score in a table
     {
         Scanner line = new Scanner(System.in);
-        System.out.println("\nChoose where you want to score");
+        UpperScore.Display();
+        System.out.println("\nChoose the line that you want to fill");
 
         int choose = line.nextInt();
 
@@ -50,13 +51,13 @@ public class UpperScore<tableScore> {
     }
 
     public static void Display() { //a method that displays the current score after each throw
-        System.out.println("Your score is : ");
+        System.out.println("Your current set of scores is : ");
         for(int x = 0; x<6; x++) {
             if(UpperScore.tableScore[x] == -1) {
-                System.out.println(x+1 + " | X");
+                System.out.println("[" + (x+1) + "]" + " | X");
             }
             else {
-                System.out.println(x+1 + " | " + UpperScore.tableScore[x]);
+                System.out.println("[" + (x+1) + "]" + " | " + UpperScore.tableScore[x]);
             }
 
         }
