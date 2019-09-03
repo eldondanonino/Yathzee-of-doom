@@ -20,7 +20,7 @@ public class Dice
             if(ArrayOfDice[n]!=-1)
                 System.out.println("Your dice n°" + (n+1) + " has a value of " + ArrayOfDice[n]);
             else
-                System.out.println("Your dice n°" + (n+2) + " will be rerolled!");
+                System.out.println("Your dice n°" + (n+1) + " will be rerolled!");
             if (n==4)
                 System.out.println(" ");
         }
@@ -108,14 +108,23 @@ public class Dice
     //printScreen(ArrayOfDice, true);
     return ArrayOfDice;
     }
-}
 
-    /* Failed attempt at implementing unicode dice
+    /*
+    // Failed attempt at implementing unicode dice
     public static void UnicodeDice(int valueOfDice)
     {
         char var1 = (char)valueOfDice;
         String bob = Character.toString((char)var1);
-        String unicodeDie = String.valueOf(Character.toChars(Integer.parseInt(bob, 16)));
+        String unicodeDie = String.valueOf(Character.toChars(Integer.parseInt(bob, 30)));
         System.out.println(unicodeDie);
     }
-*/
+    */
+
+    //Working implementation of unicode!
+    /*
+    StringBuffer b = new StringBuffer();
+        b.append('\u2059');
+        System.out.println(b);*/
+}
+
+
