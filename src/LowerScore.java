@@ -2,7 +2,7 @@ public class LowerScore {
 
     public static boolean TwoOfAKind(int[] ArrayOfDice,int trio)
     {
-        for(int i=1; i < 6; i++)
+        for(int i=1; i < 7; i++)
         {
             int counter = 0;
             for (int c = 0; c<5; c++) //we go through our hand
@@ -23,7 +23,7 @@ public class LowerScore {
     public static void ThreeOfAKind(int[] ArrayOfDice, int choose)
     {
         int c, counter, d, sum = 0;
-        for (c = 1; c < 6; c++) //we check a 3oak for each value of die
+        for (c = 1; c < 7; c++) //we check a 3oak for each value of die
         {counter = 0;
             for (d = 0; d < 5; d++)  //we go through our hand
             {
@@ -49,7 +49,7 @@ public class LowerScore {
     public static void FourOfAKind(int[] ArrayOfDice, int choose)
     {
         int c, counter, d, sum = 0;
-        for (c = 1; c < 6; c++) //we check a 3oak for each value of die
+        for (c = 1; c < 7; c++) //we check a 3oak for each value of die
         {counter = 0;
             for (d = 0; d < 5; d++)  //we go through our hand
             {
@@ -75,7 +75,7 @@ public class LowerScore {
     public static void Yahtzee(int[] ArrayOfDice, int choose)
     {
         int c, counter, d;
-        for (c = 1; c < 6; c++) //we check a Yahtzee for each value of die
+        for (c = 1; c < 7; c++) //we check a Yahtzee for each value of die
         {counter = 0;
             for (d = 0; d < 5; d++)  //we go through our hand
             {
@@ -100,8 +100,9 @@ public class LowerScore {
     public static void FullHouse(int[] ArrayOfDice, int choose)
     {
         int c, counter, d, sum = 0, trio = 0;
-        for (c = 1; c < 6; c++) //we check a 3oak for each value of die
-        {counter = 0;
+        for (c = 1; c < 7; c++) //we check a 3oak for each value of die
+        {
+            counter = 0;
             for (d = 0; d < 5; d++)  //we go through our hand
             {
                 if (ArrayOfDice[d] == c)
