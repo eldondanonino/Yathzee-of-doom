@@ -43,22 +43,34 @@ public class UpperScore<tableScore> {
 
     public static void Bonus(int[] ArrayOfScores)
     {
-        int sum=0, bonus=0;
-        for(int c = 0; c<6; c++) //we count the total score
+        int sum1=0, sum2=0, bonus=0;
+
+        if(Play.cheating)
+        System.out.println("You have used the debug command, so your score cannot be validated (it would'nt be fair for regular players)");
+        else
         {
-            sum+=ArrayOfScores[c];
+            for(int c = 0; c<6; c++) //we count the total score
+            {
+                sum1+=ArrayOfScores[c];
+            }
+
+            if(sum1>=63) //we check if the player gets the bonus
+            {
+                bonus = 35;
+            }
+            System.out.println("______________________________________________");
+            System.out.println("Upper Score : " + sum1);
+            System.out.println("Bonus (Upper Score >62) : " + bonus);
+            System.out.println("Total of Upper Score : " + (sum1+bonus));
+            System.out.println("______________________________________________");
+            for(int c = 6; c < 13; c++) //we count the total score
+            {
+                sum2+=ArrayOfScores[c];
+            }
+            System.out.println("Lower Score : " + sum2);
+            System.out.println("Total Score : " + (sum1 + sum2));
         }
-
-        if(sum>=63) //we check if the player gets the bonus
-        {
-            bonus = 35;
         }
-
-        System.out.println("Score : " + sum);
-        System.out.println("Bonus (score >62) : " + bonus);
-        System.out.println("Total of Upper Score : " + (sum+bonus));
-    }
-
     public static void Display() { //a method that displays the current score after each throw
         System.out.println("Your current set of scores is : ");
         for(int x = 0; x<6; x++) {

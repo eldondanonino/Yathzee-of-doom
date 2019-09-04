@@ -91,8 +91,10 @@ public class Dice
         }
         if(input==2) // if the user does not wish to reroll anymore, we skip to the last phase of the turn
             turnCounter=2;
-        if(input == 3)
+        if(input == 3) {
+            Play.cheating = true;
             turnCounter = Cheat(ArrayOfDice);
+        }
         return turnCounter;
     }
 
@@ -103,7 +105,6 @@ public class Dice
         int[]Failsafe = new int[]{-1,-1,-1,-1,-1};
         int j;
         printScreen(ArrayOfDice,true);
-
     for (turnCounter = 0; turnCounter<3; turnCounter++)
     {
         if(turnCounter != 2) // We can reroll dice only twice (aka on turn 0 and 1)

@@ -1,6 +1,8 @@
 public class Play {
-
+ static boolean cheating = false;
     public static void Game() {
+        boolean cheating = false;
+
         StringBuffer b = new StringBuffer();
         b.append('\u2620');
         System.out.println();
