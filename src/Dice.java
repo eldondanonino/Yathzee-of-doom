@@ -29,6 +29,18 @@ public class Dice
                                                                                                                                         //this will be useful for when we will implement the lower part of the table
     }
 
+    public static int Cheat(int[] ArrayOfDice)
+    {
+        for (int i = 0; i<5; i++)
+        {
+            System.out.println("input value of die" + i);
+            Scanner bob = new Scanner(System.in);
+            ArrayOfDice[i] = bob.nextInt();
+
+        }
+        return 2;
+    }
+
     public static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter) //method that rerolls the value of selected dice
     {
         int n, input = 0;
@@ -37,9 +49,9 @@ public class Dice
 
             do {
                 //printScreen(ArrayOfDice, false);
-                System.out.println("\nWould you like to reroll some dice? (1= YES / 2=NO)");
+                System.out.println("\nWould you like to reroll some dice? (1= YES / 2=NO / 3=DEBUG)");
                 input = sc.nextInt();
-            } while (input < 1 || input > 2);
+            } while (input < 1 || input > 3);
 
         if (input == 1) {
             System.out.println("\nReroll time! (reroll " + (turnCounter + 1) + " out of 2)");
@@ -79,6 +91,8 @@ public class Dice
         }
         if(input==2) // if the user does not wish to reroll anymore, we skip to the last phase of the turn
             turnCounter=2;
+        if(input == 3)
+            turnCounter = Cheat(ArrayOfDice);
         return turnCounter;
     }
 

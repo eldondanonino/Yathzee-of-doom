@@ -8,7 +8,7 @@ public class Play {
 
         int[] ArrayOfScores = new int[0];
 
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 13; i++) {
             int[] ArrayOfDices = Dice.Throw();
             ArrayOfScores = UpperScore.Scoring(ArrayOfDices);
             UpperScore.Display();
