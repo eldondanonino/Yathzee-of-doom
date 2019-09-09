@@ -43,14 +43,14 @@ public class Dice
 
     public static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter) //method that rerolls the value of selected dice
     {
-        int n, input = 0;
-        Scanner sc = new Scanner(System.in);
+        int n, input = 1;
+        Scanner bob = new Scanner(System.in);
         //System.out.println("Failsafe has these values : " + Failsafe[0] + Failsafe[1] + Failsafe[2] + Failsafe[3] + Failsafe[4] );
-
             do {
                 //printScreen(ArrayOfDice, false);
                 System.out.println("\nWould you like to reroll some dice? (1= YES / 2=NO / 3=DEBUG)");
-                input = sc.nextInt();
+                input = bob.nextInt();
+                System.out.println("BALISE");
             } while (input < 1 || input > 3);
 
         if (input == 1) {
@@ -61,7 +61,7 @@ public class Dice
             {
                 do //we check that the dice we want to reroll exists
                 {
-                    n = sc.nextInt();
+                    n = bob.nextInt();
                     n--;
                     if (n < -1 || n > 4)
                         System.out.println("This dice does not exist!");
@@ -109,7 +109,6 @@ public class Dice
     {
         if(turnCounter != 2) // We can reroll dice only twice (aka on turn 0 and 1)
         {
-            j=0;
            // we set up a backup array if the user changes his mind on a reroll
             for(j = 0;j<5; j++ ) {
                 //System.out.println("AAAAAAAAA");
