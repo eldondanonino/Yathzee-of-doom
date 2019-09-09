@@ -1,7 +1,11 @@
+import java.util.Scanner;
+
 public class Main
 {
     public static void main(String[] args)
     {
-        Play.Game();
+        Scanner sc = new Scanner(System.in);
+        Play.Game(sc);
+        sc.close();
     }
 }

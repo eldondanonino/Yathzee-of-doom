@@ -5,21 +5,19 @@ public class UpperScore<tableScore> {
     static int tableScore[] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; //the -1 means that the specified line doesn't have a score yet
 
 
-    public static int[] Scoring(int[] ArrayOfDice) //a method that saves the player's score in a table
+    public static int[] Scoring(int[] ArrayOfDice, Scanner sc) //a method that saves the player's score in a table
     {
-        Scanner line = new Scanner(System.in);
-
         UpperScore.Display();
 
         System.out.println("\nChoose the line that you want to fill");
 
-        int choose = line.nextInt();
+        int choose = sc.nextInt();
 
         while (choose < 1 || choose > 13 || UpperScore.tableScore[choose-1] != -1) //we check that the line chosen exists or hasn't been picked already
         {
             System.out.println("\nYou can't put your score here, please try again");
             UpperScore.Display();
-            choose = line.nextInt();
+            choose = sc.nextInt();
         }
 
         if (choose>6)

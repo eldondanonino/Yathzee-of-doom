@@ -41,15 +41,14 @@ public class Dice
         return 2;
     }
 
-    public static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter) //method that rerolls the value of selected dice
+    public static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter, Scanner sc) //method that rerolls the value of selected dice
     {
         int n, input = 1;
-        Scanner bob = new Scanner(System.in);
         //System.out.println("Failsafe has these values : " + Failsafe[0] + Failsafe[1] + Failsafe[2] + Failsafe[3] + Failsafe[4] );
             do {
                 //printScreen(ArrayOfDice, false);
                 System.out.println("\nWould you like to reroll some dice? (1= YES / 2=NO / 3=DEBUG)");
-                input = bob.nextInt();
+                input = sc.nextInt();
                 System.out.println("BALISE");
             } while (input < 1 || input > 3);
 
@@ -61,7 +60,7 @@ public class Dice
             {
                 do //we check that the dice we want to reroll exists
                 {
-                    n = bob.nextInt();
+                    n = sc.nextInt();
                     n--;
                     if (n < -1 || n > 4)
                         System.out.println("This dice does not exist!");
@@ -98,7 +97,7 @@ public class Dice
         return turnCounter;
     }
 
-    public static int[] Throw ()  // method that gives a hand of 5 dice and the option to reroll them twice
+    public static int[] Throw (Scanner sc)  // method that gives a hand of 5 dice and the option to reroll them twice
     {
         int[]ArrayOfDice = new int[]{-1,-1,-1,-1,-1}; // our "Hand" of dice, still waiting to be initialized
         int turnCounter; //the "phase" of our turn (ranging from 0 to 2)
@@ -115,7 +114,7 @@ public class Dice
                 Failsafe[j] = ArrayOfDice[j];
                 //System.out.println(Failsafe[j]);
             }
-            turnCounter = Reroll(ArrayOfDice, Failsafe, turnCounter);
+            turnCounter = Reroll(ArrayOfDice, Failsafe, turnCounter,sc);
             printScreen(ArrayOfDice, true);
         }
     }
