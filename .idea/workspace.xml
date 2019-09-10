@@ -48,11 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UpperScore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="376" column="58" selection-start-line="376" selection-start-column="51" selection-end-line="376" selection-end-column="58" />
-              <folding>
-                <element signature="e#8137#9896#0" />
-              </folding>
+            <state relative-caret-position="176">
+              <caret line="446" column="24" lean-forward="true" selection-start-line="446" selection-start-column="24" selection-end-line="446" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -111,7 +108,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1087" />
@@ -352,11 +349,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UpperScore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="376" column="58" selection-start-line="376" selection-start-column="51" selection-end-line="376" selection-end-column="58" />
-          <folding>
-            <element signature="e#8137#9896#0" />
-          </folding>
+        <state relative-caret-position="176">
+          <caret line="446" column="24" lean-forward="true" selection-start-line="446" selection-start-column="24" selection-end-line="446" selection-end-column="24" />
         </state>
       </provider>
     </entry>
