@@ -3,9 +3,10 @@ import java.util.Scanner;
 
 public class Menu {
 
+    static String[] player = {"X", "X", "X", "X"}; //we define a set of stri,gs which will hold the players names
     public static String[] choice (Scanner sc) {
 
-    String[] player = {"X", "X", "X", "X"}; //we define a set of stri,gs which will hold the players names
+
     System.out.println("_____________________");
     System.out.println("1- Play Yathzee");
     System.out.println("2- Informations");
@@ -15,7 +16,7 @@ public class Menu {
 
     switch(option){ //We ask for the menu option
         case 1 :
-            player = Menu.Choice1(sc); //if the choice is to play, we need to retrieve the number of players
+            Menu.player = Menu.Choice1(sc); //if the choice is to play, we need to retrieve the number of players
             break;
         case 2 :
             Menu.Choice2(sc); //we diplay the rules and come back to the menu
@@ -24,7 +25,7 @@ public class Menu {
             Menu.Choice3(); //we exit the game
             break;
         }
-    return player;
+    return Menu.player;
     }
 
     public static int PlayerCounter (String[] player){ //a simple methods that returns the number of players
@@ -57,7 +58,7 @@ public class Menu {
         }
 
         for (i = 0; i < player_number; i++) {
-            System.out.println("Press enter to continue :) ");
+            if(i !=0) {System.out.println("Press enter to continue :) ");}
             sc.nextLine(); //temporary fix to the buffer issue (will be fixed with the use of a gui)
             System.out.printf("Please input the name of player " + (i+1) + " : ");
             player[i] = sc.nextLine();
@@ -70,7 +71,7 @@ public class Menu {
         System.out.println("1. Roll up to 3 times each turn to rack up the best possible score.");
         System.out.println("2. Decide which dice combo you're going for.");
         System.out.println("3. After each turn, mark your score in one empty box on the score card. \n  ");
-        System.out.println("Press any key to continue");
+        //System.out.println("Press any key to continue");
         sc.nextLine();
         Menu.choice(sc);
     }

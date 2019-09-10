@@ -78,7 +78,7 @@ public class UpperScore {
     public static void Display(int player) { //a method that displays the current score after each throw
 
 
-        System.out.println("Your current set of scores is : ");
+        System.out.println( Menu.player[player] + "'s current set of scores is : ");
         for (int x = 0; x < 6; x++) {
             if (UpperScore.tableScore[player][x] == -1) {
                 System.out.println("                [" + (x + 1) + "]" + "   | X");

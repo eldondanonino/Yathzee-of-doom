@@ -15,6 +15,7 @@ public class Play {
         for (int i = 0; i < 13; i++) {
             for (int j = 0;  j< Menu.PlayerCounter(PlayerList); j++)
             {
+                System.out.println("\nIt's " + Menu.player[j] + "'s turn to play!");
                 int[] ArrayOfDices = Dice.Throw(sc);
                 ArrayOfScores = UpperScore.Scoring(ArrayOfDices, j, sc);
                 UpperScore.Display(j);
