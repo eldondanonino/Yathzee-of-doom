@@ -49,7 +49,7 @@ public class Dice
                 //printScreen(ArrayOfDice, false);
                 System.out.println("\nWould you like to reroll some dice? (1= YES / 2=NO / 3=DEBUG)");
                 input = sc.nextInt();
-                System.out.println("BALISE");
+                //System.out.println("BALISE");
             } while (input < 1 || input > 3);
 
         if (input == 1) {

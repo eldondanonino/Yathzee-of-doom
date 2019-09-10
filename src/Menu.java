@@ -30,10 +30,14 @@ public class Menu {
 
     public static int PlayerCounter (String[] player){ //a simple methods that returns the number of players
         int i = 0;
+        boolean carl = true;
             do
             {
                 i++;
-            }while (player[i-1] != "X" || i != 4 );
+                int bob = (player[i].compareTo("X"));
+                if (bob == 0)
+                     carl = false;
+            }while (carl && i != 4);
         return i;
     }
 

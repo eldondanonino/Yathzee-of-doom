@@ -6,7 +6,7 @@ public class Play {
         String[] PlayerList = {"X", "X", "X", "X"};
         int [][]ArrayOfScores = new int[10][10];
         PlayerList = Menu.choice(sc);
-        System.out.println("There are " + Menu.PlayerCounter(PlayerList) + "players");
+        System.out.println("There are " + Menu.PlayerCounter(PlayerList) + " players");
         StringBuffer b = new StringBuffer();
         b.append('\u2620');
         System.out.println();
