@@ -32,7 +32,7 @@ public class Menu {
             do
             {
                 i++;
-            }while (player[i] != "X");
+            }while (player[i-1] != "X" || i != 4 );
         return i;
     }
 
@@ -45,7 +45,7 @@ public class Menu {
         System.out.println("Input the number of players : ");
         int player_number = sc.nextInt();
 
-        while (player_number > 4) {
+        while (player_number > 3) {
             System.out.println("The number of players must be lower than four");
             System.out.println("Input the number of players : ");
             player_number = sc.nextInt();

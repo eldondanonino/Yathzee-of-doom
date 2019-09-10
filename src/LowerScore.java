@@ -1,6 +1,6 @@
 public class LowerScore {
 
-    public static boolean TwoOfAKind(int[] ArrayOfDice,int trio)
+    public static boolean TwoOfAKind(int[] ArrayOfDice,int trio, int player)
     {
         for(int i=1; i < 7; i++)
         {
@@ -20,7 +20,7 @@ public class LowerScore {
         return false;
     }
 
-    public static void ThreeOfAKind(int[] ArrayOfDice, int choose)
+    public static void ThreeOfAKind(int[] ArrayOfDice, int choose, int player)
     {
         int c, counter, d, sum = 0;
         for (c = 1; c < 7; c++) //we check a 3oak for each value of die
@@ -36,17 +36,17 @@ public class LowerScore {
                 {
                     //three of a kind
                     System.out.println("this is a three of a kind\n");
-                    Chance(ArrayOfDice,choose);
+                    Chance(ArrayOfDice,choose, player);
                     counter=0; //anti loop measure
                 }
             }
         }
-        if (UpperScore.tableScore[choose - 1] == -1) {
-            UpperScore.tableScore[choose - 1] = 0;
+        if (UpperScore.tableScore[player][choose - 1] == -1) {
+            UpperScore.tableScore[player][choose - 1] = 0;
         }
     }
 
-    public static void FourOfAKind(int[] ArrayOfDice, int choose)
+    public static void FourOfAKind(int[] ArrayOfDice, int choose, int player)
     {
         int c, counter, d, sum = 0;
         for (c = 1; c < 7; c++) //we check a 3oak for each value of die
@@ -62,17 +62,17 @@ public class LowerScore {
                 {
                     //four of a kind
                     System.out.println("this is a four of a kind\n");
-                    Chance(ArrayOfDice,choose);
+                    Chance(ArrayOfDice,choose, player);
                     counter=0; //anti loop measure
                 }
             }
         }
-        if (UpperScore.tableScore[choose - 1] == -1) {
-            UpperScore.tableScore[choose - 1] = 0;
+        if (UpperScore.tableScore[player][choose - 1] == -1) {
+            UpperScore.tableScore[player][choose - 1] = 0;
         }
     }
 
-    public static void Yahtzee(int[] ArrayOfDice, int choose)
+    public static void Yahtzee(int[] ArrayOfDice, int choose, int player)
     {
         int c, counter, d;
         for (c = 1; c < 7; c++) //we check a Yahtzee for each value of die
@@ -87,17 +87,17 @@ public class LowerScore {
                 if (counter >= 5)
                 {
 
-                    UpperScore.tableScore[choose - 1] = 50;
+                    UpperScore.tableScore[player][choose - 1] = 50;
                     counter=0; //anti loop measure
                 }
             }
         }
-        if (UpperScore.tableScore[choose - 1] == -1) {
-            UpperScore.tableScore[choose - 1] = 0;
+        if (UpperScore.tableScore[player][choose - 1] == -1) {
+            UpperScore.tableScore[player][choose - 1] = 0;
         }
     }
 
-    public static void FullHouse(int[] ArrayOfDice, int choose)
+    public static void FullHouse(int[] ArrayOfDice, int choose, int player)
     {
         int c, counter, d, sum = 0, trio = 0;
         for (c = 1; c < 7; c++) //we check a 3oak for each value of die
@@ -115,21 +115,21 @@ public class LowerScore {
                     //three of a kind
                     System.out.println("this is a three of a kind\n");
                     trio = c;
-                    boolean pair = TwoOfAKind(ArrayOfDice, trio);
+                    boolean pair = TwoOfAKind(ArrayOfDice, trio, player);
                     if (pair)
                     {
-                        UpperScore.tableScore[choose - 1] = 25;
+                        UpperScore.tableScore[player][choose - 1] = 25;
                     }
                     counter=0; //anti loop measure
                 }
             }
         }
-        if (UpperScore.tableScore[choose - 1] == -1) {
-            UpperScore.tableScore[choose - 1] = 0;
+        if (UpperScore.tableScore[player][choose - 1] == -1) {
+            UpperScore.tableScore[player][choose - 1] = 0;
         }
     }
 
-    public static void Chance(int[] ArrayOfDice, int choose)
+    public static void Chance(int[] ArrayOfDice, int choose, int player)
     {
         int sum = 0;
         for (int e = 0; e < 5; e++) //we sum up every die
@@ -137,10 +137,10 @@ public class LowerScore {
             sum += ArrayOfDice[e];
             System.out.println("value of sum " + sum + "\n");
         }
-        UpperScore.tableScore[choose - 1] = sum;
+        UpperScore.tableScore[player][choose - 1] = sum;
     }
 
-    public static void SmallStraight(int[] ArrayOfDice, int choose)
+    public static void SmallStraight(int[] ArrayOfDice, int choose, int player)
     {
         int sentinel = 0, cpt = 0;
         for(int i = 0; i<5; i++)
@@ -187,7 +187,7 @@ public class LowerScore {
 
         switch(sentinel){
             case 0:
-                UpperScore.tableScore[choose - 1] = 0;
+                UpperScore.tableScore[player][choose - 1] = 0;
                 break;
 
             case 1:
@@ -204,8 +204,8 @@ public class LowerScore {
                     }
                 }
                 if(cpt == 4)
-                    UpperScore.tableScore[choose - 1] = 30;
-                else UpperScore.tableScore[choose-1] = 0;
+                    UpperScore.tableScore[player][choose - 1] = 30;
+                else UpperScore.tableScore[player][choose-1] = 0;
                 break;
 
             case 2:
@@ -221,8 +221,8 @@ public class LowerScore {
                     }
                 }
                 if(cpt == 4)
-                    UpperScore.tableScore[choose - 1] = 30;
-                else UpperScore.tableScore[choose-1] = 0;
+                    UpperScore.tableScore[player][choose - 1] = 30;
+                else UpperScore.tableScore[player][choose-1] = 0;
                 break;
 
             case 3:
@@ -238,13 +238,13 @@ public class LowerScore {
                     }
                 }
                 if(cpt == 4)
-                    UpperScore.tableScore[choose - 1] = 30;
-                else UpperScore.tableScore[choose-1] = 0;
+                    UpperScore.tableScore[player][choose - 1] = 30;
+                else UpperScore.tableScore[player][choose-1] = 0;
                 break;
         }
     }
 
-    public static void LargeStraight(int[] ArrayOfDice, int choose)
+    public static void LargeStraight(int[] ArrayOfDice, int choose, int player)
     {
         int sentinel = 0;
         for(int i = 0; i<5; i++)
@@ -274,8 +274,8 @@ public class LowerScore {
         }
     }
                 if(cpt == 5)
-    UpperScore.tableScore[choose - 1] = 40;
-                else UpperScore.tableScore[choose-1] = 0;
+    UpperScore.tableScore[player][choose - 1] = 40;
+                else UpperScore.tableScore[player][choose-1] = 0;
                 break;
             case 2 :
                 cpt = 0;
@@ -291,37 +291,37 @@ public class LowerScore {
                     }
                 }
                 if(cpt == 5)
-                    UpperScore.tableScore[choose - 1] = 40;
-                else UpperScore.tableScore[choose-1] = 0;
+                    UpperScore.tableScore[player][choose - 1] = 40;
+                else UpperScore.tableScore[player][choose-1] = 0;
                 break;
             case 0 :
-                UpperScore.tableScore[choose - 1] = 0;
+                UpperScore.tableScore[player][choose - 1] = 0;
         }
     }
 
-    public static void Lower(int[] ArrayOfDice, int choose) {
+    public static void Lower(int[] ArrayOfDice, int choose, int player) {
 
         switch (choose) {
             case 7:
-                ThreeOfAKind(ArrayOfDice, choose);
+                ThreeOfAKind(ArrayOfDice, choose, player);
                 break;
             case 8:
-                FourOfAKind(ArrayOfDice, choose);
+                FourOfAKind(ArrayOfDice, choose, player);
                 break;
             case 9:
-                FullHouse(ArrayOfDice,choose);
+                FullHouse(ArrayOfDice,choose, player);
                 break;
             case 10:
-                SmallStraight(ArrayOfDice, choose);
+                SmallStraight(ArrayOfDice, choose, player);
                 break;
             case 11 :
-                LargeStraight(ArrayOfDice,choose);
+                LargeStraight(ArrayOfDice,choose, player);
                 break;
             case 12 :
-                Chance(ArrayOfDice,choose);
+                Chance(ArrayOfDice,choose, player);
                 break;
             case 13 :
-                Yahtzee(ArrayOfDice,choose);
+                Yahtzee(ArrayOfDice,choose, player);
                 break;
         }
     }
