@@ -18,7 +18,7 @@ public class Play {
                 System.out.println("\nIt's " + Menu.player[j] + "'s turn to play!");
                 int[] ArrayOfDices = Dice.Throw(sc);
                 ArrayOfScores = UpperScore.Scoring(ArrayOfDices, j, sc);
-                UpperScore.Display(j);
+                UpperScore.Display(j, ArrayOfDices);
             }
         }
         UpperScore.Bonus(ArrayOfScores, Menu.PlayerCounter(PlayerList));
