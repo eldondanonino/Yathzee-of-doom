@@ -3,4 +3,3 @@ First, we are going to create a GUI to make the game more enjoyable and easier t
  Secondly, we can implement something to help the players during the game if they don't know how to play, like for example showing the better play, or giving hints.
  Finally, we are going to ameliorate and optimize the program, so that it can be more efficient and less prone to errors.
 We also consider adding a basic AI so that the user can play by himself
-<3
