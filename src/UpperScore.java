@@ -239,62 +239,53 @@ import java.util.Scanner;
                     }
                 }
 
-                switch(sentinel){
+                switch(sentinel) {
                     case 0:
                         return 0;
 
 
                     case 1:
 
-                        for (int i = 3; i<7; i++)
-                        {
-                            for (int j = 0; j < 5; j++)
-                            {
-                                if(ArrayOfDice[j] == i)
-                                {
+                        for (int i = 3; i < 7; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                if (ArrayOfDice[j] == i) {
                                     cpt++;
                                     break;
                                 }
                             }
                         }
-                        if(cpt == 4)
+                        if (cpt == 4)
                             return 30;
                         else return 0;
 
 
                     case 2:
-                        for (int i = 2; i<6; i++)
-                        {
-                            for (int j = 0; j < 5; j++)
-                            {
-                                if(ArrayOfDice[j] == i)
-                                {
+                        for (int i = 2; i < 6; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                if (ArrayOfDice[j] == i) {
                                     cpt++;
                                     break;
                                 }
                             }
                         }
-                        if(cpt == 4)
+                        if (cpt == 4)
                             return 30;
                         else return 0;
 
 
                     case 3:
-                        for (int i = 1; i<5; i++)
-                        {
-                            for (int j = 0; j < 5; j++)
-                            {
-                                if(ArrayOfDice[j] == i)
-                                {
+                        for (int i = 1; i < 5; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                if (ArrayOfDice[j] == i) {
                                     cpt++;
                                     break;
                                 }
                             }
                         }
-                        if(cpt == 4)
+                        if (cpt == 4)
                             return 30;
-                        else return  0;
-
+                        else return 0;
+                }
 
 
                     case 11:
@@ -350,7 +341,7 @@ import java.util.Scanner;
                                 return 0;
                         }
 
-                }
+
             case 12:
 
                 for (int e = 0; e < 5; e++) //we sum up every die
