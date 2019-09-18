@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
-public class UpperScore {
+ class UpperScore {
 
     static int[] tableScore[] = {{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
             {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}}; //the -1 means that the specified line doesn't have a score yet
 
 
-    public static int[][] Scoring(int[] ArrayOfDice, int player, Scanner line) //a method that saves the player's score in a table
+     static int[][] Scoring(int[] ArrayOfDice, int player, Scanner line) //a method that saves the player's score in a table
     {
         UpperScore.Display(player, ArrayOfDice);
 
@@ -41,7 +41,7 @@ public class UpperScore {
     }
 
 
-    public static void Bonus(int[][] ArrayOfScores, int player)
+     static void Bonus(int[][] ArrayOfScores, int player)
     {
         int sum1=0, sum2=0, bonus=0;
 
@@ -73,7 +73,7 @@ public class UpperScore {
         }
         }
 
-    public static int Epitaph(int line, int[] ArrayOfDice) {
+     private static int Epitaph(int line, int[] ArrayOfDice) {
         int d = 0, c , counter, sum = 0, cpt = 0, sentinel = 0;
         switch (line) {
 
@@ -381,7 +381,7 @@ public class UpperScore {
         }
     return 0;}
 
-    public static void Display(int player, int[] ArrayOfDice) { //a method that displays the current score after each throw
+     static void Display(int player, int[] ArrayOfDice) { //a method that displays the current score after each throw
 
 
         System.out.println( Menu.player[player] + "'s current set of scores is : ");

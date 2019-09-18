@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
 
-public class Menu {
+ class Menu {
 
     static String[] player = {"X", "X", "X", "X"}; //we define a set of stri,gs which will hold the players names
-    public static String[] choice (Scanner sc) {
+     static String[] choice (Scanner sc) {
 
 
     System.out.println("_____________________");
@@ -28,7 +28,7 @@ public class Menu {
     return Menu.player;
     }
 
-    public static int PlayerCounter (String[] player){ //a simple methods that returns the number of players
+     static int PlayerCounter (String[] player){ //a simple methods that returns the number of players
         int i = 0;
         boolean carl = true;
             do
@@ -42,7 +42,7 @@ public class Menu {
     }
 
 
-    public static String[] Choice1 (Scanner sc)
+     private static String[] Choice1 (Scanner sc)
     {
         String[] player = {"X", "X", "X", "X"};
         int i ;
@@ -70,7 +70,7 @@ public class Menu {
         return player;
     }
 
-    public static void Choice2 (Scanner sc) {
+     private static void Choice2 (Scanner sc) {
         System.out.println("\nInformations about Yahtzee\n");
         System.out.println("1. Roll up to 3 times each turn to rack up the best possible score.");
         System.out.println("2. Decide which dice combo you're going for.");
@@ -80,7 +80,7 @@ public class Menu {
         Menu.choice(sc);
     }
 
-    public static void Choice3 () {
+     private static void Choice3 () {
                 System.exit(0);
             }
 }

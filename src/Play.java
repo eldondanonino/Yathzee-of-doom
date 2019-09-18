@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class Play {
+ class Play {
  static boolean cheating = false;
-    public static void Game(Scanner sc) {
+     static void Game(Scanner sc) {
         String[] PlayerList = {"X", "X", "X", "X"};
         int [][]ArrayOfScores = new int[10][10];
         PlayerList = Menu.choice(sc);

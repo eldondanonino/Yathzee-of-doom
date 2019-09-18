@@ -2,10 +2,10 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-public class Dice
+class Dice
 {
 
-    public static void printScreen(int[] ArrayOfDice, boolean toggle) //method that prints the current hand and the sum of all dice
+    private static void printScreen(int[] ArrayOfDice, boolean toggle) //method that prints the current hand and the sum of all dice
     {
         int n, sum=0;
 
@@ -29,7 +29,7 @@ public class Dice
                                                                                                                                         //this will be useful for when we will implement the lower part of the table
     }
 
-    public static int Cheat(int[] ArrayOfDice)
+    private static int Cheat(int[] ArrayOfDice)
     {
         for (int i = 0; i<5; i++)
         {
@@ -41,7 +41,7 @@ public class Dice
         return 2;
     }
 
-    public static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter, Scanner sc) //method that rerolls the value of selected dice
+    private static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter, Scanner sc) //method that rerolls the value of selected dice
     {
         int n, input = 1;
         //System.out.println("Failsafe has these values : " + Failsafe[0] + Failsafe[1] + Failsafe[2] + Failsafe[3] + Failsafe[4] );
@@ -97,7 +97,7 @@ public class Dice
         return turnCounter;
     }
 
-    public static int[] Throw (Scanner sc)  // method that gives a hand of 5 dice and the option to reroll them twice
+     static int[] Throw (Scanner sc)  // method that gives a hand of 5 dice and the option to reroll them twice
     {
         int[]ArrayOfDice = new int[]{-1,-1,-1,-1,-1}; // our "Hand" of dice, still waiting to be initialized
         int turnCounter; //the "phase" of our turn (ranging from 0 to 2)

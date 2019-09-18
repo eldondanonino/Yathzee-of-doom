@@ -1,6 +1,6 @@
-public class LowerScore {
+ class LowerScore {
 
-    public static boolean TwoOfAKind(int[] ArrayOfDice,int trio, int player)
+     static boolean TwoOfAKind(int[] ArrayOfDice,int trio, int player)
     {
         for(int i=1; i < 7; i++)
         {
@@ -20,7 +20,7 @@ public class LowerScore {
         return false;
     }
 
-    public static void ThreeOfAKind(int[] ArrayOfDice, int choose, int player)
+     private static void ThreeOfAKind(int[] ArrayOfDice, int choose, int player)
     {
         int c, counter, d, sum = 0;
         for (c = 1; c < 7; c++) //we check a 3oak for each value of die
@@ -46,7 +46,7 @@ public class LowerScore {
         }
     }
 
-    public static void FourOfAKind(int[] ArrayOfDice, int choose, int player)
+     private static void FourOfAKind(int[] ArrayOfDice, int choose, int player)
     {
         int c, counter, d, sum = 0;
         for (c = 1; c < 7; c++) //we check a 3oak for each value of die
@@ -72,7 +72,7 @@ public class LowerScore {
         }
     }
 
-    public static void Yahtzee(int[] ArrayOfDice, int choose, int player)
+     private static void Yahtzee(int[] ArrayOfDice, int choose, int player)
     {
         int c, counter, d;
         for (c = 1; c < 7; c++) //we check a Yahtzee for each value of die
@@ -97,7 +97,7 @@ public class LowerScore {
         }
     }
 
-    public static void FullHouse(int[] ArrayOfDice, int choose, int player)
+     private static void FullHouse(int[] ArrayOfDice, int choose, int player)
     {
         int c, counter, d, sum = 0, trio = 0;
         for (c = 1; c < 7; c++) //we check a 3oak for each value of die
@@ -129,7 +129,7 @@ public class LowerScore {
         }
     }
 
-    public static void Chance(int[] ArrayOfDice, int choose, int player)
+     private static void Chance(int[] ArrayOfDice, int choose, int player)
     {
         int sum = 0;
         for (int e = 0; e < 5; e++) //we sum up every die
@@ -140,7 +140,7 @@ public class LowerScore {
         UpperScore.tableScore[player][choose - 1] = sum;
     }
 
-    public static void SmallStraight(int[] ArrayOfDice, int choose, int player)
+     private static void SmallStraight(int[] ArrayOfDice, int choose, int player)
     {
         int sentinel = 0, cpt = 0;
         for(int i = 0; i<5; i++)
@@ -244,7 +244,7 @@ public class LowerScore {
         }
     }
 
-    public static void LargeStraight(int[] ArrayOfDice, int choose, int player)
+     private static void LargeStraight(int[] ArrayOfDice, int choose, int player)
     {
         int sentinel = 0;
         for(int i = 0; i<5; i++)
@@ -299,7 +299,7 @@ public class LowerScore {
         }
     }
 
-    public static void Lower(int[] ArrayOfDice, int choose, int player) {
+     static void Lower(int[] ArrayOfDice, int choose, int player) {
 
         switch (choose) {
             case 7:
