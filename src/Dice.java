@@ -29,46 +29,48 @@ class Dice
                                                                                                                                         //this will be useful for when we will implement the lower part of the table
     }
 
-    private static int Cheat(int[] ArrayOfDice)
+    private static int Cheat(int[] ArrayOfDice, Scanner sc)
     {
         for (int i = 0; i<5; i++)
         {
             System.out.println("input value of die" + i);
-            Scanner bob = new Scanner(System.in);
             do {
-                bob.nextLine();
-            }while(!bob.hasNextInt());
-            ArrayOfDice[i] = bob.nextInt();
+                sc.nextLine();
+            }while(!sc.hasNextInt());
+            ArrayOfDice[i] = sc.nextInt();
         }
         return 2;
     }
 
-    private static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter, Scanner sc) //method that rerolls the value of selected dice
+    private static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter, Scanner bob) //method that rerolls the value of selected dice
     {
-        int n, input = 1;
+        int n, input = 0;
         //System.out.println("Failsafe has these values : " + Failsafe[0] + Failsafe[1] + Failsafe[2] + Failsafe[3] + Failsafe[4] );
             do {
                 //printScreen(ArrayOfDice, false);
-                System.out.println("\nWould you like to reroll some dice? (1= YES / 2=NO / 3=DEBUG)");
+                System.out.println("Let's reroll!");
+                bob.nextLine();
+                System.out.println("\nWould you like to reroll some dice? Press ENTER and then choose from (1= YES / 2=NO / 3=DEBUG)");
                 do {
-                    sc.nextLine();
-                }while(!sc.hasNextInt());
-                input = sc.nextInt();
-                //System.out.println("BALISE");
+                    bob.nextLine();
+                    //System.out.println("Baby proof loop");
+                }while(!bob.hasNextInt());
+                input = bob.nextInt();
+                //System.out.println("it's ok man");
             } while (input < 1 || input > 3);
 
         if (input == 1) {
             System.out.println("\nReroll time! (reroll " + (turnCounter + 1) + " out of 2)");
             System.out.println("Which die do you want to reroll? (write 0 to stop the reroll)");
             System.out.println("Pro tip! You can write all the dice that you want to reroll at once, just put a space in between each one!");
-            do // reroll dice untill the user inputs a stop (0)
+            do // reroll dice until the user inputs a stop (0)
             {
                 do //we check that the dice we want to reroll exists
                 {
                     do {
-                        sc.nextLine();
-                    }while(!sc.hasNextInt());
-                    n = sc.nextInt();
+                        bob.nextLine();
+                    }while(!bob.hasNextInt());
+                    n = bob.nextInt();
                     n--;
                     if (n < -1 || n > 4)
                         System.out.println("This dice does not exist!");
@@ -100,7 +102,7 @@ class Dice
             turnCounter=2;
         if(input == 3) {
             Play.cheating = true;
-            turnCounter = Cheat(ArrayOfDice);
+            turnCounter = Cheat(ArrayOfDice, bob);
         }
         return turnCounter;
     }
