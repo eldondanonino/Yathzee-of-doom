@@ -35,8 +35,10 @@ class Dice
         {
             System.out.println("input value of die" + i);
             Scanner bob = new Scanner(System.in);
+            do {
+                bob.nextLine();
+            }while(!bob.hasNextInt());
             ArrayOfDice[i] = bob.nextInt();
-
         }
         return 2;
     }
@@ -48,6 +50,9 @@ class Dice
             do {
                 //printScreen(ArrayOfDice, false);
                 System.out.println("\nWould you like to reroll some dice? (1= YES / 2=NO / 3=DEBUG)");
+                do {
+                    sc.nextLine();
+                }while(!sc.hasNextInt());
                 input = sc.nextInt();
                 //System.out.println("BALISE");
             } while (input < 1 || input > 3);
@@ -60,6 +65,9 @@ class Dice
             {
                 do //we check that the dice we want to reroll exists
                 {
+                    do {
+                        sc.nextLine();
+                    }while(!sc.hasNextInt());
                     n = sc.nextInt();
                     n--;
                     if (n < -1 || n > 4)

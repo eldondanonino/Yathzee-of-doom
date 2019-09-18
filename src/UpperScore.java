@@ -11,7 +11,9 @@ import java.util.Scanner;
         UpperScore.Display(player, ArrayOfDice);
 
         System.out.println("\nChoose the line that you want to fill");
-
+        do {
+            line.nextLine();
+        }while(!line.hasNextInt());
         int choose = line.nextInt();
 
 
@@ -19,6 +21,9 @@ import java.util.Scanner;
         {
             System.out.println("\nYou can't put your score here, please try again");
             UpperScore.Display(player, ArrayOfDice);
+            do {
+                line.nextLine();
+            }while(!line.hasNextInt());
             choose = line.nextInt();
         }
 

@@ -12,6 +12,9 @@ import java.util.Scanner;
     System.out.println("2- Informations");
     System.out.println("3- Exit");
     System.out.println("_____________________");
+     do {
+     sc.nextLine();
+        }while(!sc.hasNextInt());
     int option = sc.nextInt();
 
     switch(option){ //We ask for the menu option
@@ -48,16 +51,25 @@ import java.util.Scanner;
         int i ;
 
         System.out.println("Input the number of players : ");
+        do {
+            sc.nextLine();
+        }while(!sc.hasNextInt());
         int player_number = sc.nextInt();
 
         while (player_number > 3) {
             System.out.println("The number of players must be lower than four");
             System.out.println("Input the number of players : ");
+            do {
+                sc.nextLine();
+            }while(!sc.hasNextInt());
             player_number = sc.nextInt();
         }
         while (player_number < 1) {
             System.out.println("The number of players is insufficient");
             System.out.println("Input the number of players : ");
+            do {
+                sc.nextLine();
+            }while(!sc.hasNextInt());
             player_number = sc.nextInt();
         }
 
