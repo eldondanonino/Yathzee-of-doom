@@ -127,7 +127,7 @@ public class IA {
         int bestindex=-1;
         for (int x=0; x<13; x++)
         {
-            if (UpperScore.Epitaph((x+1), IA.ArrayOfDices)>=bestscore)
+            if (UpperScore.Epitaph((x+1), IA.ArrayOfDices)>=bestscore && IA.ScoreIA[x]==-1)
             {
                 bestscore=UpperScore.Epitaph((x+1), IA.ArrayOfDices);
                 bestindex=x;
