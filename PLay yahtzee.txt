@@ -3,9 +3,8 @@ import java.util.Scanner;
  class Play {
  static boolean cheating = false;
      static void Game(Scanner sc) {
-        String[] PlayerList = {"X", "X", "X", "X"};
-        int [][]ArrayOfScores = new int[10][10];
-        PlayerList = Menu.choice(sc);
+         int [][]ArrayOfScores = new int[10][10];
+         String[] PlayerList = Menu.choice(sc);
         System.out.println("There are " + Menu.PlayerCounter(PlayerList) + " players");
         StringBuffer b = new StringBuffer();
         b.append('\u2620');
@@ -20,7 +19,11 @@ import java.util.Scanner;
                 ArrayOfScores = UpperScore.Scoring(ArrayOfDices, j, sc);
                 UpperScore.Display(j, ArrayOfDices);
             }
+            System.out.println("\nIt's the IA's turn to play!\n");
+            IA.higherDice(sc);
         }
         UpperScore.Bonus(ArrayOfScores, Menu.PlayerCounter(PlayerList));
     }
-}
+
+
+ }

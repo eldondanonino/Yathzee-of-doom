@@ -1,17 +1,19 @@
 import java.util.Scanner;
 
-public class UpperScore {
+ class UpperScore {
 
     static int[] tableScore[] = {{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
             {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}, {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}}; //the -1 means that the specified line doesn't have a score yet
 
 
-    public static int[][] Scoring(int[] ArrayOfDice, int player, Scanner line) //a method that saves the player's score in a table
+     static int[][] Scoring(int[] ArrayOfDice, int player, Scanner line) //a method that saves the player's score in a table
     {
         UpperScore.Display(player, ArrayOfDice);
 
         System.out.println("\nChoose the line that you want to fill");
-
+        do {
+            line.nextLine();
+        }while(!line.hasNextInt());
         int choose = line.nextInt();
 
 
@@ -19,6 +21,9 @@ public class UpperScore {
         {
             System.out.println("\nYou can't put your score here, please try again");
             UpperScore.Display(player, ArrayOfDice);
+            do {
+                line.nextLine();
+            }while(!line.hasNextInt());
             choose = line.nextInt();
         }
 
@@ -41,7 +46,7 @@ public class UpperScore {
     }
 
 
-    public static void Bonus(int[][] ArrayOfScores, int player)
+     static void Bonus(int[][] ArrayOfScores, int player)
     {
         int sum1=0, sum2=0, bonus=0;
 
@@ -73,7 +78,7 @@ public class UpperScore {
         }
         }
 
-    public static int Epitaph(int line, int[] ArrayOfDice) {
+     private static int Epitaph(int line, int[] ArrayOfDice) {
         int d = 0, c , counter, sum = 0, cpt = 0, sentinel = 0;
         switch (line) {
 
@@ -239,62 +244,53 @@ public class UpperScore {
                     }
                 }
 
-                switch(sentinel){
+                switch(sentinel) {
                     case 0:
                         return 0;
 
 
                     case 1:
 
-                        for (int i = 3; i<7; i++)
-                        {
-                            for (int j = 0; j < 5; j++)
-                            {
-                                if(ArrayOfDice[j] == i)
-                                {
+                        for (int i = 3; i < 7; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                if (ArrayOfDice[j] == i) {
                                     cpt++;
                                     break;
                                 }
                             }
                         }
-                        if(cpt == 4)
+                        if (cpt == 4)
                             return 30;
                         else return 0;
 
 
                     case 2:
-                        for (int i = 2; i<6; i++)
-                        {
-                            for (int j = 0; j < 5; j++)
-                            {
-                                if(ArrayOfDice[j] == i)
-                                {
+                        for (int i = 2; i < 6; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                if (ArrayOfDice[j] == i) {
                                     cpt++;
                                     break;
                                 }
                             }
                         }
-                        if(cpt == 4)
+                        if (cpt == 4)
                             return 30;
                         else return 0;
 
 
                     case 3:
-                        for (int i = 1; i<5; i++)
-                        {
-                            for (int j = 0; j < 5; j++)
-                            {
-                                if(ArrayOfDice[j] == i)
-                                {
+                        for (int i = 1; i < 5; i++) {
+                            for (int j = 0; j < 5; j++) {
+                                if (ArrayOfDice[j] == i) {
                                     cpt++;
                                     break;
                                 }
                             }
                         }
-                        if(cpt == 4)
+                        if (cpt == 4)
                             return 30;
-                        else return  0;
-
+                        else return 0;
+                }
 
 
                     case 11:
@@ -350,7 +346,7 @@ public class UpperScore {
                                 return 0;
                         }
 
-                }
+
             case 12:
 
                 for (int e = 0; e < 5; e++) //we sum up every die
@@ -381,7 +377,7 @@ public class UpperScore {
         }
     return 0;}
 
-    public static void Display(int player, int[] ArrayOfDice) { //a method that displays the current score after each throw
+     static void Display(int player, int[] ArrayOfDice) { //a method that displays the current score after each throw
 
 
         System.out.println( Menu.player[player] + "'s current set of scores is : ");
