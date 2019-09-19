@@ -2,10 +2,10 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-class Dice
+public class Dice
 {
 
-    private static void printScreen(int[] ArrayOfDice, boolean toggle) //method that prints the current hand and the sum of all dice
+    public static void printScreen(int[] ArrayOfDice, boolean toggle) //method that prints the current hand and the sum of all dice
     {
         int n, sum=0;
 
@@ -29,48 +29,39 @@ class Dice
                                                                                                                                         //this will be useful for when we will implement the lower part of the table
     }
 
-    private static int Cheat(int[] ArrayOfDice, Scanner sc)
+    public static int Cheat(int[] ArrayOfDice)
     {
         for (int i = 0; i<5; i++)
         {
             System.out.println("input value of die" + i);
-            do {
-                sc.nextLine();
-            }while(!sc.hasNextInt());
-            ArrayOfDice[i] = sc.nextInt();
+            Scanner bob = new Scanner(System.in);
+            ArrayOfDice[i] = bob.nextInt();
+
         }
         return 2;
     }
 
-    private static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter, Scanner bob) //method that rerolls the value of selected dice
+    public static int Reroll (int[] ArrayOfDice, int[] Failsafe, int turnCounter) //method that rerolls the value of selected dice
     {
         int n, input = 0;
+        Scanner sc = new Scanner(System.in);
         //System.out.println("Failsafe has these values : " + Failsafe[0] + Failsafe[1] + Failsafe[2] + Failsafe[3] + Failsafe[4] );
+
             do {
                 //printScreen(ArrayOfDice, false);
-                System.out.println("Let's reroll!");
-                bob.nextLine();
-                System.out.println("\nWould you like to reroll some dice? Press ENTER and then choose from (1= YES / 2=NO / 3=DEBUG)");
-                do {
-                    bob.nextLine();
-                    //System.out.println("Baby proof loop");
-                }while(!bob.hasNextInt());
-                input = bob.nextInt();
-                //System.out.println("it's ok man");
+                System.out.println("\nWould you like to reroll some dice? (1= YES / 2=NO / 3=DEBUG)");
+                input = sc.nextInt();
             } while (input < 1 || input > 3);
 
         if (input == 1) {
             System.out.println("\nReroll time! (reroll " + (turnCounter + 1) + " out of 2)");
             System.out.println("Which die do you want to reroll? (write 0 to stop the reroll)");
             System.out.println("Pro tip! You can write all the dice that you want to reroll at once, just put a space in between each one!");
-            do // reroll dice until the user inputs a stop (0)
+            do // reroll dice untill the user inputs a stop (0)
             {
                 do //we check that the dice we want to reroll exists
                 {
-                    do {
-                        bob.nextLine();
-                    }while(!bob.hasNextInt());
-                    n = bob.nextInt();
+                    n = sc.nextInt();
                     n--;
                     if (n < -1 || n > 4)
                         System.out.println("This dice does not exist!");
@@ -100,31 +91,31 @@ class Dice
         }
         if(input==2) // if the user does not wish to reroll anymore, we skip to the last phase of the turn
             turnCounter=2;
-        if(input == 3) {
-            Play.cheating = true;
-            turnCounter = Cheat(ArrayOfDice, bob);
-        }
+        if(input == 3)
+            turnCounter = Cheat(ArrayOfDice);
         return turnCounter;
     }
 
-     static int[] Throw (Scanner sc)  // method that gives a hand of 5 dice and the option to reroll them twice
+    public static int[] Throw ()  // method that gives a hand of 5 dice and the option to reroll them twice
     {
         int[]ArrayOfDice = new int[]{-1,-1,-1,-1,-1}; // our "Hand" of dice, still waiting to be initialized
         int turnCounter; //the "phase" of our turn (ranging from 0 to 2)
         int[]Failsafe = new int[]{-1,-1,-1,-1,-1};
         int j;
         printScreen(ArrayOfDice,true);
+
     for (turnCounter = 0; turnCounter<3; turnCounter++)
     {
         if(turnCounter != 2) // We can reroll dice only twice (aka on turn 0 and 1)
         {
+            j=0;
            // we set up a backup array if the user changes his mind on a reroll
             for(j = 0;j<5; j++ ) {
                 //System.out.println("AAAAAAAAA");
                 Failsafe[j] = ArrayOfDice[j];
                 //System.out.println(Failsafe[j]);
             }
-            turnCounter = Reroll(ArrayOfDice, Failsafe, turnCounter,sc);
+            turnCounter = Reroll(ArrayOfDice, Failsafe, turnCounter);
             printScreen(ArrayOfDice, true);
         }
     }
